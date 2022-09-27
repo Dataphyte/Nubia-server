@@ -1,13 +1,22 @@
 import cors from 'cors';
 import morgan from 'morgan';
-import { Express } from 'express';
 import helmet from 'helmet';
-import AppRoutes from '../routes/router';
+import { Express } from 'express';
+import AppRouter from '../routes/router';
+import ErrorMiddleware from './Error.middleware';
 
-export default (app: Express): void => {
+/**
+ *
+ * Adds all middleware to the
+ * @category Middlewares
+ * @param {Express} app - Express App instance
+ *
+ * @returns {void}
+ */
+const preRoute = (app: Express): void => {
   !app &&
     console.warn(
-      'WARN: There is no app instace passed to pre-route middleware '
+      '[⚠️warn]: pre-route middleware expected an app instance but got nothing'
     );
 
   // prettier-ignore
@@ -16,5 +25,10 @@ export default (app: Express): void => {
       .use(cors())
       .use(helmet())
       .use(morgan('[:method - :status] :url :response-time ms'))
-      .use(AppRoutes);
+      .use(AppRouter)
+
+  // Add error middleware
+  app && ErrorMiddleware(app);
 };
+
+export default preRoute;
