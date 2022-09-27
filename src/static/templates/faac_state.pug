@@ -1,0 +1,29 @@
+doctype
+html(lang='en')
+   head
+      meta(charset='utf-8')
+      title Sample FAAC story
+      link(rel="stylesheet", href="../styles/faac.style.css", type='text/css')
+   body
+      div.container 
+         h1.section__heading What #{data.state} got in total
+         p.content 
+            | According to FAAC data, from the total amount received by #{data.state} was ₦#{data.state_total}bn.
+            | While the state got ₦#{data.state_value}bn, the #{data.no_of_lgc} LGCs got in total,
+            | ₦#{data.state_total}bn.
+         
+         p.content 
+            | The total for the state and it's LGCs is ₦#{data.difference} billion/million 
+            if data.difference > 0
+               | more 
+            else
+               | lesser 
+            | than the #{data.prev_state_total}
+            | shared in the month of #{data.prev_month}
+
+         p.content 
+            | Considering the total amount shared among states, 
+            | #{data.state} got the #{data.rank}th position among the 36.
+            | One key factor aside from population for this position is the 
+            | 13 percent statutory derivation that some states recieve even though 
+            | they may have more or less population.
