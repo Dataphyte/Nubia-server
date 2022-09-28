@@ -16,7 +16,7 @@
 
 ---
 
-<p align="center"> Nubia is an open-source project that aims to generate stories 
+<p align="center"> Nubia is an open-source project that aims to generate multiple stories from single cleaned data stream. 
     <br> 
 </p>
 
@@ -43,8 +43,8 @@ These instructions will get you a copy of the project up and running on your loc
 
 What things you need to install the software and how to install them.
 
-> VScode
-> NodeJs
+> - VScode
+> - NodeJs
 
 ### Installing
 
@@ -52,28 +52,28 @@ A step by step series of examples that tell you how to get a development env run
 
 1. Install all packages
 
-```javascript
-// install all packages
-yarn;
+```
+  // install all packages
+  yarn
 ```
 
 2. set up .env from .env.example
 
-```javascript
-// In the terminal
-// copy files in .env.example to a new file '.env'
-cp.env.example.env;
+```
+  // In the terminal
+  // copy files in .env.example to a new file '.env'
+  cp.env.example.env
 ```
 
 3. Start dev server
 
-```javascript
-yarn run dev
+```
+  yarn run dev
 ```
 
 4. To generate documentation from JsDoc
 
-```javascript
+```
 yarn run gen-docs
 ```
 
@@ -81,23 +81,7 @@ End with an example of getting some data out of the system or using it for a lit
 
 ## 🔧 Running the tests <a name = "tests"></a>
 
-Explain how to run the automated tests for this system.
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+There are currently no tests.
 
 ## 🎈 Usage <a name="usage"></a>
 

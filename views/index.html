@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TEST STORIES</title>
+  </head>
+  <body>
+    <h1>Loading...</h1>
+    <div id="story__holder"></div>
+    <script>
+      (async () => {
+        await fetch('http://localhost:8080/faac')
+          .then((res) => res.json())
+          .then((res) => (document.body.innerHTML = res.data[23]));
+      })();
+
+      const StoryHolder = document.getElementById('story__holder');
+      console.log(StoryHolder);
+    </script>
+  </body>
+</html>

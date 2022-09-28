@@ -7,6 +7,18 @@ import useNumber from '../../utils/useNumber.utils';
 
 const file = fs.readFileSync('./src/data/single.csv', { encoding: 'utf-8' });
 
+/**
+ * FAAC service class
+ * Handles all FAAC services
+ * @category Services
+ * @example <caption>Creating a new FAAC strory</caption>
+ * // calling in user.controller.js
+ * const faac_service = require('path/to/faac_service.js')
+ *
+ * const faacData = req.body
+ * const newStory = await faac_service.CREATE(faacData)
+ * res.status(201).send(newStory)
+ */
 class faac_service {
   async CREATE() {
     let templates: any[] = [];
