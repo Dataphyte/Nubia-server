@@ -7,13 +7,27 @@
     <title>TEST STORIES</title>
   </head>
   <body>
-    <h1>Loading...</h1>
-    <div id="story__holder"></div>
+    <h1>NUBIA STORIES</h1>
+    <div
+      id="story__holder"
+      style="
+        padding: 10px 30px;
+        border: 1px solid gray;
+        margin: 10px;
+        box-shadow: 4px 8px 32px rgba(0, 0, 0, 0.3);
+        border-radius: 12px;
+      "
+    >
+      Loading...
+    </div>
     <script>
       (async () => {
         await fetch('http://localhost:8080/faac')
           .then((res) => res.json())
-          .then((res) => (document.body.innerHTML = res.data[23]));
+          .then(
+            (res) =>
+              (document.getElementById('story__holder').innerHTML = res.data[0])
+          );
       })();
 
       const StoryHolder = document.getElementById('story__holder');
