@@ -23,6 +23,7 @@ class faac_ctrl {
   async CREATE(req: Request, res: CustomResponseInterface) {
     const faacData = req.body;
     const faacTemplate = await faacService.CREATE();
+    console.log(faacTemplate);
     res.created(faacTemplate, 'FAAC Stories');
   }
 }
