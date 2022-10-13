@@ -29,7 +29,7 @@ class faac_service {
     /* ====== get oparsed lgc data */
     const lgcData = await parser(
       './src/data/faac-lgc-data.csv',
-      null
+      this.setLgcDifference
       // (result: FAAC_LGC[]) => console.log(result[0])
     );
 
@@ -50,11 +50,12 @@ class faac_service {
   }
 
   /**
+   * Sets the difference between current month value and last month value for state
    *
    * @param {{Any}} chunck - SIngle data entry from parsed csv files. This param is passed down from the parser function object
    * @returns difference between state total and  previous state total
    */
-  setStateDifference(chunck: any) {
+  setStateDifference(chunck: FAAC): void {
     chunck.difference =
       Number(useNumber(chunck.state_total)) -
       Number(useNumber(chunck.prev_state_total));
@@ -63,6 +64,25 @@ class faac_service {
     chunck.lgc_data = [];
   }
 
+  /**
+   * Sets the difference between current month value and last month value for LGC
+   *
+   * @param {{Any}} chunck - SIngle data entry from parsed csv files. This param is passed down from the parser function object
+   * @returns difference between state total and  previous state total
+   */
+  setLgcDifference(chunck: FAAC_LGC): void {
+    chunck.difference =
+      Number(useNumber(chunck.current_month_lgc)) -
+      Number(useNumber(chunck.prev_month_lgc));
+  }
+
+  /**
+   * Adds the lgc data to the corresponding state data object
+   *
+   * @param {FAAC} stateData - The current state data to be edited (should be gotten from a loop)
+   * @param {FAAC_LGC} lgc - The current lgc data to be added to the state data (should also be gotten from a loop)
+   * @returns void
+   */
   pushLGC(stateData: FAAC, lgc: FAAC_LGC) {
     return stateData && lgc && stateData.lgc_data?.push(lgc);
   }

@@ -6,7 +6,7 @@ html(lang='en')
       link(rel="stylesheet", href="../styles/faac.style.css", type='text/css')
    body
       //- State Stpry section 
-      .container 
+      .container__story
          h1.section__heading What #{stateData.state} got in total
          p.content 
             | According to FAAC data, from the total amount received by #{stateData.state} was ₦#{stateData.state_total}bn.
@@ -35,18 +35,35 @@ html(lang='en')
             | they may have more or less population.
 
 
-         h2.section__heading LGC data
+         h2.section__sub-heading What about #[+value(`${stateData.state}'s`)] LGCs?
 
          //- LGC story section
-         ul.lgc__container
+         ul.container__lgc
             each lgcData in stateData.lgc_data
-               li.lgc__item 
-                  h3.section__heading What #{lgcData.lgc} got in total
+               li.item__lgc 
+                  h3.list__heading What #{lgcData.lgc} got in total
 
                   p.content
-                     | The #{lgcData.lgc} in the March, 2022 received {lgcData.lgc_value}mn.
-                     | The amount for #{lgcData.lgc} is [+value(`₦${lgcData.difference}`)]
+                     | The #{lgcData.lgc} in the March, 2022 received #[+value(`₦${lgcData.lgc_value.toLocaleString()}`)]mn.
+                     | The amount for #{lgcData.lgc} is #[+value(`₦${Number(lgcData.difference.toLocaleString())}`)]
                      if lgcData.difference > 999999999
                         | billion 
                      else if lgcData.difference < 1000000000 && stateData.difference > 999999
                         | million
+                     
+                     if lgcData > 0
+                        | more 
+                     else 
+                        | lesser 
+                     | than the #[+value(`₦${lgcData.prev_month_lgc.toLocaleString()}`)] from the federation account revenue disbursment.
+
+                  p.content 
+                     | With an estimated population of #[+value(Number(lgcData.population), {'TEXTUAL': true})],
+                     | the FAAC per capita for the lgc is #[+value(`₦${Number(lgcData.lgc_faac_per_capita).toLocaleString()}`)].
+                     | Based on the per capita, #{lgcData.lgc} is in the rank
+                     | #[+value(Number(lgcData.lgc_rank), {'ORDINAL_NUMBER': true})] position among the 774.
+
+                  p.content 
+                     | Aside from the population which is the major determinant of the FAAC amount, ...,
+                     | ecological needs, amount of rainfall and ... contribute to the positionof the LGC 
+                     | and the state shares in the FAAC.

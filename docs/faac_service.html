@@ -266,12 +266,12 @@ Handles all FAAC services</p></div>
 
 
     
-    <h4 class="name" id="setFields">
-        <a class="href-link" href="#setFields">#</a>
+    <h4 class="name" id="pushLGC">
+        <a class="href-link" href="#pushLGC">#</a>
         
         <span class="code-name">
             
-                setFields<span class="signature">(chunck)</span><span class="type-signature"></span>
+                pushLGC<span class="signature">(stateData, lgc)</span><span class="type-signature"></span>
             
         </span>
     </h4>
@@ -280,7 +280,197 @@ Handles all FAAC services</p></div>
     
     
     <div class="description">
-        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Adds the lgc data to the corresponding state data object</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>stateData</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">FAAC</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>The current state data to be edited (should be gotten from a loop)</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>lgc</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">FAAC_LGC</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>The current lgc data to be added to the state data (should also be gotten from a loop)</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="services_faac_faac.service.js.html" class="button">View Source</a>
+            <span>
+                <a href="services_faac_faac.service.js.html">services/faac/faac.service.js</a>, <a href="services_faac_faac.service.js.html#line86">line 86</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p>void</p></div>
+    
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="setLgcDifference">
+        <a class="href-link" href="#setLgcDifference">#</a>
+        
+        <span class="code-name">
+            
+                setLgcDifference<span class="signature">(chunck)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Sets the difference between current month value and last month value for LGC</p>
     </div>
     
 
@@ -382,7 +572,172 @@ Handles all FAAC services</p></div>
         <p class="tag-source">
             <a href="services_faac_faac.service.js.html" class="button">View Source</a>
             <span>
-                <a href="services_faac_faac.service.js.html">services/faac/faac.service.js</a>, <a href="services_faac_faac.service.js.html#line60">line 60</a>
+                <a href="services_faac_faac.service.js.html">services/faac/faac.service.js</a>, <a href="services_faac_faac.service.js.html#line74">line 74</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p>difference between state total and  previous state total</p></div>
+    
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="setStateDifference">
+        <a class="href-link" href="#setStateDifference">#</a>
+        
+        <span class="code-name">
+            
+                setStateDifference<span class="signature">(chunck)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Sets the difference between current month value and last month value for state</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>chunck</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">Object</code>
+
+
+  
+  </td>
+
+  
+
+  
+
+  <td class="description last"><p>SIngle data entry from parsed csv files. This param is passed down from the parser function object</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="services_faac_faac.service.js.html" class="button">View Source</a>
+            <span>
+                <a href="services_faac_faac.service.js.html">services/faac/faac.service.js</a>, <a href="services_faac_faac.service.js.html#line61">line 61</a>
             </span>
         </p>
     

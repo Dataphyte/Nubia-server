@@ -24,16 +24,39 @@ class faac_ctrl {
     const faacTemplate = await faacService.CREATE();
     const classnames = [
       {
-        class: 'container',
+        class: 'container__story',
         desc: 'The wrapping container around the whole story',
+        tag: 'div',
+      },
+      {
+        class: 'container__lgc',
+        desc: 'The wrapping container around the whole LGC section of the story',
+        tag: 'ul',
       },
       {
         class: 'section__heading',
         desc: 'Heading text of a new section',
+        tag: 'h1',
+      },
+      {
+        class: 'section__sub-heading',
+        desc: 'Paragraph and story body',
+        tag: 'h2',
       },
       {
         class: 'content',
         desc: 'Paragraph and story body',
+        tag: 'p',
+      },
+      {
+        class: 'item__lgc',
+        desc: 'The wrapping container of each LGC list story',
+        tag: 'li',
+      },
+      {
+        class: 'list__heading',
+        desc: 'Since the LGC story section is returned as a list, this class is assigned to the heading of each list item',
+        tag: 'h3',
       },
     ];
     res.created({ template: faacTemplate, classnames }, 'FAAC Stories');

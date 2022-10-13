@@ -23,4 +23,7 @@ export interface FAAC_LGC {
   land_size: string;
   population: number;
   female_pop: string;
+  difference: number;
+  prev_month_lgc: number;
+  current_month_lgc: number;
 }
