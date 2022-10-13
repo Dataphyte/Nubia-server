@@ -5,13 +5,12 @@
  * @returns {Number} Number
  */
 const useNumber = (str: string | number): number | void => {
-  if (!str)
-    return console.warn('useNumber expected a string as param but got nothing');
+  if (!str) return console.warn('useNumber expected a string but got nothing');
 
-  /* ====== if a number was passed as param */
+  // ======= if a number was passed as param -->
   if (typeof str === 'number') return str;
 
-  /* ====== if it is a string */
+  // ======= if it is a string -->
   if (typeof str === 'string') {
     const departed = str.split(',');
     const result: number = parseInt(departed.join(''));

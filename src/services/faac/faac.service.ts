@@ -19,14 +19,14 @@ class faac_service {
   async CREATE() {
     let templates: any[] = [];
 
-    /* ====== Get parsed state data */
+    // ======= Get parsed state data -->
     const stateData: FAAC[] = await parser(
       './src/data/faac-state-data.csv',
       this.setStateDifference
       // (result: FAAC[]) => console.log(result[0])
     );
 
-    /* ====== get oparsed lgc data */
+    // ======= get oparsed lgc data -->
     const lgcData = await parser(
       './src/data/faac-lgc-data.csv',
       this.setLgcDifference
@@ -60,7 +60,7 @@ class faac_service {
       Number(useNumber(chunck.state_total)) -
       Number(useNumber(chunck.prev_state_total));
 
-    /* ====== Add up lgc data to main state faac object */
+    // ======= Add up lgc data to main state faac object -->
     chunck.lgc_data = [];
   }
 
