@@ -13,7 +13,7 @@ export const parser = async (
   path: string,
   loopCallback: Function | null = null,
   endCallback: Function | null = null
-): Promise<any> => {
+): Promise<any[]> => {
   return new Promise((resolve, reject) => {
     const result: any[] = [];
     const reader = fs.createReadStream(path);
