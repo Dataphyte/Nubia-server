@@ -45,7 +45,7 @@ html(lang='en')
 
                   p.content
                      | The #{lgcData.lgc} in the March, 2022 received #[+value(`₦${lgcData.lgc_value.toLocaleString()}`)]mn.
-                     | The amount for #{lgcData.lgc} is #[+value(`₦${Number(lgcData.difference.toLocaleString())}`)]
+                     | The amount for #{lgcData.lgc} is #[+value(`₦${Number(lgcData.difference).toLocaleString()}`)]
                      if lgcData.difference > 999999999
                         | billion 
                      else if lgcData.difference < 1000000000 && stateData.difference > 999999
