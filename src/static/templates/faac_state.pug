@@ -7,41 +7,46 @@ html(lang='en')
    body
       //- State Stpry section 
       .container 
-         h1.section__heading What #{data.state} got in total
+         h1.section__heading What #{stateData.state} got in total
          p.content 
-            | According to FAAC data, from the total amount received by #{data.state} was ₦#{data.state_total}bn.
-            | While the state got ₦#{data.state_value}bn, the #{data.no_of_lgc} LGCs got in total,
-            | ₦#{data.state_total}bn.
+            | According to FAAC data, from the total amount received by #{stateData.state} was ₦#{stateData.state_total}bn.
+            | While the state got #[+value(`₦${stateData.state_value}`)]bn, the ₦#{stateData.no_of_lgc} LGCs got in total,
+            | ₦#{stateData.state_total}bn.
          
          p.content 
-            | The total for the state and it's LGCs is ₦#{data.difference} billion/million 
-            if data.difference > 0
+            | The total for the state and it's LGCs is ₦#{stateData.difference.toLocaleString()}
+            if stateData.difference > 999999999
+               | billion 
+            else if stateData.difference < 1000000000 && stateData.difference > 999999
+               | million 
+
+            if stateData.difference > 0
                | more 
             else
                | lesser 
-            | than the #{data.prev_state_total}
-            | shared in the month of #{data.prev_month}
+            | than the #{stateData.prev_state_total}
+            | shared in the month of #{stateData.prev_month}
 
          p.content 
             | Considering the total amount shared among states, 
-            | #{data.state} got the #{data.rank}th position among the 36.
+            | #{stateData.state} got the #[+value(Number(stateData.rank), {'ORDINAL_NUMBER': true})] position among the 36.
             | One key factor aside from population for this position is the 
             | 13 percent statutory derivation that some states recieve even though 
             | they may have more or less population.
 
-      //- LGC story section
-      .container 
-         h1.section__heading What #LGC NAME# got in total
-         p.content 
-            | The #LGC NAME# in the #Month Yeat# received #LGC Value#mn
-            | The amount for the #LGC Name# is #Current Month - Previous Month#
-            | From the federation account revenue disbursment.
 
-         p.content 
-            | With an estimated population of #Source from NBS#, 
-            | The FAAC per capita for the LGC is #FAAC Month Value / LGC population#.
-            | Based on the per capita , the LGC is on the #rank#th position among the 774.
+         h2.section__heading LGC data
 
-         p.content 
-            | Aside from the population which is the major determinant of the FAAC amount, #AMOUNT#
-            | contribute to the position of the LGC and the state shares in the FAAC allocation.
+         //- LGC story section
+         ul.lgc__container
+            each lgcData in stateData.lgc_data
+               li.lgc__item 
+                  h3.section__heading What #{lgcData.lgc} got in total
+
+                  p.content
+                     | The #{lgcData.lgc} in the March, 2022 received {lgcData.lgc_value}mn.
+                     | The amount for #{lgcData.lgc} is [+value(`₦${lgcData.difference}`)]
+                     if lgcData.difference > 999999999
+                        | billion 
+                     else if lgcData.difference < 1000000000 && stateData.difference > 999999
+                        | million

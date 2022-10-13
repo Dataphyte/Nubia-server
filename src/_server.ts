@@ -7,7 +7,6 @@ const app: Express = express();
 preRoute(app);
 
 // prettier-ignore
-app.listen(
-    env.PORT || 8080,
-    () => console.log('⚡[server]: Server started...')
+app.listen(env.PORT || 8080, () =>
+  console.log(`⚡[server]: ${env.PORT}::Server started...`)
 );

@@ -1,20 +1,26 @@
 export interface FAAC {
-  rank: Number;
-  state: String;
-  no_of_lgc: Number;
-  // sum_of_lgc: Number;
-  population: Number;
-  difference: Number;
-  state_value: Number;
-  state_total: Number;
-  prev_month: String;
-  faac_per_capita: Number;
-  prev_state_value: Number;
-  prev_state_total: Number;
+  rank: number;
+  state: string;
+  no_of_lgc: number;
+  lgc_data: FAAC_LGC[];
+  prev_month: string;
+  population: number;
+  difference: number;
+  state_value: number;
+  state_total: number;
+  faac_per_capita: number;
+  prev_state_value: number;
+  prev_state_total: number;
 }
 
-export interface FAAC_LGC extends FAAC {
-  month: String;
-  lgc_name: String;
-  lgc_value: Number;
+export interface FAAC_LGC {
+  state: string;
+  month: string;
+  male_pop: string;
+  lgc_name: string;
+  district: string;
+  lgc_value: number;
+  land_size: string;
+  population: number;
+  female_pop: string;
 }

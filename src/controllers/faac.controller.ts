@@ -21,10 +21,22 @@ class faac_ctrl {
    * @returns Newly created user
    */
   async CREATE(req: Request, res: CustomResponseInterface) {
-    const faacData = req.body;
     const faacTemplate = await faacService.CREATE();
-    console.log(faacTemplate);
-    res.created(faacTemplate, 'FAAC Stories');
+    const classnames = [
+      {
+        class: 'container',
+        desc: 'The wrapping container around the whole story',
+      },
+      {
+        class: 'section__heading',
+        desc: 'Heading text of a new section',
+      },
+      {
+        class: 'content',
+        desc: 'Paragraph and story body',
+      },
+    ];
+    res.created({ template: faacTemplate, classnames }, 'FAAC Stories');
   }
 }
 
