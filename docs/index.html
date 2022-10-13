@@ -94,7 +94,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="CustomError.html">CustomError</a></li><li><a href="CustomResponse.html">CustomResponse</a></li></ul><h3>Global</h3><ul><li><a href="global.html#asyncHandler">asyncHandler</a></li><li><a href="global.html#useNumber">useNumber</a></li></ul></div><div class="category"><h2>Middlewares</h2><h3>Global</h3><ul><li><a href="global.html#preRoute">preRoute</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="CustomError.html">CustomError</a></li><li><a href="CustomResponse.html">CustomResponse</a></li></ul><h3>Global</h3><ul><li><a href="global.html#asyncHandler">asyncHandler</a></li><li><a href="global.html#parser">parser</a></li><li><a href="global.html#useNumber">useNumber</a></li></ul></div><div class="category"><h2>Controllers</h2><h3>Classes</h3><ul><li><a href="faac_ctrl.html">faac_ctrl</a></li></ul></div><div class="category"><h2>Middlewares</h2><h3>Classes</h3><ul><li><a href="Response.html">Response</a></li></ul><h3>Global</h3><ul><li><a href="global.html#preRoute">preRoute</a></li></ul></div><div class="category"><h2>Services</h2><h3>Classes</h3><ul><li><a href="faac_service.html">faac_service</a></li></ul></div>
                 
             </nav>
         </div>
@@ -130,17 +130,17 @@
     <section>
         <article><p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="https://i.imgur.com/6wj0hh6.jpg" alt="Project logo"></a>
+ <img width=100% height=300px src="./public/high-res.png" alt="Project flow"></a>
 </p>
-<h3 align="center">change-detection</h3>
+<h1 align="center">PROJECT NUBIA</h1>
 <div align="center">
 <p><a href=""><img src="https://img.shields.io/badge/status-active-success.svg" alt="Status"></a>
-<a href="https://github.com/kylelobo/The-Documentation-Compendium/issues"><img src="https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg" alt="GitHub Issues"></a>
-<a href="https://github.com/kylelobo/The-Documentation-Compendium/pulls"><img src="https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg" alt="GitHub Pull Requests"></a>
+<a href="https://github.com/Dataphyte/Nubia-server/issues"><img src="https://img.shields.io/github/issues/Dataphyte/Nubia-server.svg" alt="GitHub Issues"></a>
+<a href="https://github.com/Dataphyte/Nubia-server/pulls"><img src="https://img.shields.io/github/issues-pr/Dataphyte/Nubia-server.svg" alt="GitHub Pull Requests"></a>
 <a href="/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License"></a></p>
 </div>
 <hr>
-<p align="center"> Few lines describing your project.
+<p align="center"> Nubia is an open-source project that aims to generate multiple stories from single cleaned data stream. 
     <br> 
 </p>
 <h2>📝 Table of Contents</h2>
@@ -150,7 +150,6 @@
 <li><a href="#deployment">Deployment</a></li>
 <li><a href="#usage">Usage</a></li>
 <li><a href="#built_using">Built Using</a></li>
-<li><a href="../TODO.md">TODO</a></li>
 <li><a href="../CONTRIBUTING.md">Contributing</a></li>
 <li><a href="#authors">Authors</a></li>
 <li><a href="#acknowledgement">Acknowledgments</a></li>
@@ -158,30 +157,43 @@
 <h2>🧐 About <a name = "about"></a></h2>
 <p>Write about 1-2 paragraphs describing the purpose of your project.</p>
 <h2>🏁 Getting Started <a name = "getting_started"></a></h2>
-<p>These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See <a href="#deployment">deployment</a> for notes on how to deploy the project on a live system.</p>
+<p>These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.</p>
 <h3>Prerequisites</h3>
 <p>What things you need to install the software and how to install them.</p>
-<pre class="prettyprint source"><code>Give examples
-</code></pre>
+<blockquote>
+<ul>
+<li>VScode</li>
+<li>NodeJs</li>
+</ul>
+</blockquote>
 <h3>Installing</h3>
 <p>A step by step series of examples that tell you how to get a development env running.</p>
-<p>Say what the step will be</p>
-<pre class="prettyprint source"><code>Give the example
+<ol>
+<li>Install all packages</li>
+</ol>
+<pre class="prettyprint source"><code>  // install all packages
+  yarn
 </code></pre>
-<p>And repeat</p>
-<pre class="prettyprint source"><code>until finished
+<ol start="2">
+<li>set up .env from .env.example</li>
+</ol>
+<pre class="prettyprint source"><code>  // In the terminal
+  // copy files in .env.example to a new file '.env'
+  cp.env.example.env
+</code></pre>
+<ol start="3">
+<li>Start dev server</li>
+</ol>
+<pre class="prettyprint source"><code>  yarn run dev
+</code></pre>
+<ol start="4">
+<li>To generate documentation from JsDoc</li>
+</ol>
+<pre class="prettyprint source"><code>yarn run gen-docs
 </code></pre>
 <p>End with an example of getting some data out of the system or using it for a little demo.</p>
 <h2>🔧 Running the tests <a name = "tests"></a></h2>
-<p>Explain how to run the automated tests for this system.</p>
-<h3>Break down into end to end tests</h3>
-<p>Explain what these tests test and why</p>
-<pre class="prettyprint source"><code>Give an example
-</code></pre>
-<h3>And coding style tests</h3>
-<p>Explain what these tests test and why</p>
-<pre class="prettyprint source"><code>Give an example
-</code></pre>
+<p>There are currently no tests.</p>
 <h2>🎈 Usage <a name="usage"></a></h2>
 <p>Add notes about how to use the system.</p>
 <h2>🚀 Deployment <a name = "deployment"></a></h2>
@@ -195,7 +207,7 @@
 </ul>
 <h2>✍️ Authors <a name = "authors"></a></h2>
 <ul>
-<li><a href="https://github.com/kylelobo">@kylelobo</a> - Idea &amp; Initial work</li>
+<li><a href="https://github.com/oddFEELING">@oddFEELING</a> - Technical fellow from Dataphyte</li>
 </ul>
 <p>See also the list of <a href="https://github.com/kylelobo/The-Documentation-Compendium/contributors">contributors</a> who participated in this project.</p>
 <h2>🎉 Acknowledgements <a name = "acknowledgement"></a></h2>

@@ -7,7 +7,7 @@
   tracking-code-which-will-go-to-the-HEAD
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NUBIA DOCUMENTATION utils/customResponse.utils.js</title>
+  <title>NUBIA DOCUMENTATION services/faac/faac.service.js</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -104,7 +104,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Source</p>
-                    <h1>utils/customResponse.utils.js</h1>
+                    <h1>services/faac/faac.service.js</h1>
                 </header>
                 
 
@@ -114,28 +114,90 @@
     <section>
         <article>
             <pre class="prettyprint source linenums"><code>"use strict";
+var __awaiter = (this &amp;&amp; this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this &amp;&amp; this.__importDefault) || function (mod) {
+    return (mod &amp;&amp; mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+const rosaenlg_1 = __importDefault(require("rosaenlg"));
+const useNumber_utils_1 = __importDefault(require("../../utils/useNumber.utils"));
+const parseCSV_util_1 = require("../../utils/parseCSV.util");
 /**
- * Response Object
+ * FAAC service class
+ * Handles all FAAC services
+ * @category Services
+ * @example &lt;caption>Creating a new FAAC strory&lt;/caption>
+ * // calling in user.controller.js
+ * const faac_service = require('path/to/faac_service.js')
  *
- * @param {String} message - Response message
- * @param {*} [data = null] - Data/payload to be passed
- * @param {boolean} success - State of the request
- * @return {void}
- * @example &lt;caption>Example response&lt;/caption>
- * const userData = // code to get user data
- * res
- * .status(200)
- * .send(new CustomResponse('User created',userData, true ))
+ * const faacData = req.body
+ * const newStory = await faac_service.CREATE(faacData)
+ * res.status(201).send(newStory)
  */
-class CustomResponse {
-    constructor(message, data, success = true) {
-        this.message = message;
-        this.data = data || null;
-        this.success = success;
+class faac_service {
+    CREATE() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let templates = [];
+            /* ====== Get parsed state data */
+            const stateData = yield (0, parseCSV_util_1.parser)('./src/data/faac-state-data.csv', this.setFields
+            // (result: FAAC[]) => console.log(result[0])
+            );
+            /* ====== get oparsed lgc data */
+            const lgcData = yield (0, parseCSV_util_1.parser)('./src/data/faac-lgc-data.csv', null
+            // (result: FAAC_LGC[]) => console.log(result[0])
+            );
+            stateData.forEach((stateData) => {
+                lgcData.forEach((lgcData) => {
+                    stateData.state === lgcData.state &amp;&amp; this.pushLGC(stateData, lgcData);
+                });
+                console.log(stateData);
+                templates.push(rosaenlg_1.default.renderFile('./src/static/templates/faac_state.pug', {
+                    language: 'en_US',
+                    stateData,
+                }));
+            });
+            return templates;
+        });
+    }
+    /**
+     *
+     * @param {{Any}} chunck - SIngle data entry from parsed csv files. This param is passed down from the parser function object
+     * @returns difference between state total and  previous state total
+     */
+    setFields(chunck) {
+        chunck.difference =
+            Number((0, useNumber_utils_1.default)(chunck.state_total)) -
+                Number((0, useNumber_utils_1.default)(chunck.prev_state_total));
+        /* ====== Add up lgc data to main state faac object */
+        chunck.lgc_data = [];
+    }
+    pushLGC(stateData, lgc) {
+        var _a;
+        return stateData &amp;&amp; lgc &amp;&amp; ((_a = stateData.lgc_data) === null || _a === void 0 ? void 0 : _a.push(lgc));
     }
 }
-exports.default = CustomResponse;
+exports.default = new faac_service();
+/*
+[1] {
+[1]   State: 'Abia',
+[1]   prev_state_value: '3,991,512,875.90',
+[1]   state_value: '4,111,311,500.26',
+[1]   prev_state_total: '6,494,336,562.80',
+[1]   state_total: '6,804,581,576.76',
+[1]   population: '3,727,347',
+[1]   faac_per_capita: '1825.583069',
+[1]   rank: '6',
+[1]   no_of_lgc: '17'
+[1] }
+*/
 </code></pre>
         </article>
     </section>

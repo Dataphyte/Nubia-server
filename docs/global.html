@@ -94,7 +94,7 @@
             
             <nav>
                 
-                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="CustomError.html">CustomError</a></li><li><a href="CustomResponse.html">CustomResponse</a></li></ul><h3>Global</h3><ul><li><a href="global.html#asyncHandler">asyncHandler</a></li><li><a href="global.html#useNumber">useNumber</a></li></ul></div><div class="category"><h2>Middlewares</h2><h3>Global</h3><ul><li><a href="global.html#preRoute">preRoute</a></li></ul></div>
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3>Classes</h3><ul><li><a href="CustomError.html">CustomError</a></li><li><a href="CustomResponse.html">CustomResponse</a></li></ul><h3>Global</h3><ul><li><a href="global.html#asyncHandler">asyncHandler</a></li><li><a href="global.html#parser">parser</a></li><li><a href="global.html#useNumber">useNumber</a></li></ul></div><div class="category"><h2>Controllers</h2><h3>Classes</h3><ul><li><a href="faac_ctrl.html">faac_ctrl</a></li></ul></div><div class="category"><h2>Middlewares</h2><h3>Classes</h3><ul><li><a href="Response.html">Response</a></li></ul><h3>Global</h3><ul><li><a href="global.html#preRoute">preRoute</a></li></ul></div><div class="category"><h2>Services</h2><h3>Classes</h3><ul><li><a href="faac_service.html">faac_service</a></li></ul></div>
                 
             </nav>
         </div>
@@ -364,6 +364,239 @@ case of any.</p>
     
         <pre class="prettyprint"><code>const {Router} = require('express')const asyncHandler = require('path/to/asyncHandler.js')const UserRoute = Router()UserRoute.route('/user/').get(asyncHandler( routeController ))</code></pre>
     
+
+
+</div>
+            
+                <div class="member">
+
+
+    
+    <h4 class="name" id="parser">
+        <a class="href-link" href="#parser">#</a>
+        
+        <span class="code-name">
+            
+                parser<span class="signature">(path, loopCallback, endCallback)</span><span class="type-signature"></span>
+            
+        </span>
+    </h4>
+    
+
+    
+    
+    <div class="description">
+        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Custom function to parse csv files into arrays of Js Objects</p>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+<div class="table-container">
+    <table class="params table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+            <th>Default</th>
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>path</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">String</code>
+
+
+  
+  </td>
+
+  
+
+  
+      <td class="default">
+      
+      </td>
+  
+
+  <td class="description last"><p>Path to the file to be parsed</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>loopCallback</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">function</code>
+
+
+  
+  </td>
+
+  
+
+  
+      <td class="default">
+      
+          null
+      
+      </td>
+  
+
+  <td class="description last"><p>callback function to execute on every data entry</p></td>
+</tr>
+
+
+        
+
+            
+<tr class="deep-level-0">
+  
+      <td class="name"><code>endCallback</code></td>
+  
+
+  <td class="type">
+  
+      
+<code class="param-type">function</code>
+
+
+  
+  </td>
+
+  
+
+  
+      <td class="default">
+      
+          null
+      
+      </td>
+  
+
+  <td class="description last"><p>callback function to execute at the end of the parsing process</p></td>
+</tr>
+
+
+        
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+
+    
+
+    
+
+    
+        <p class="tag-source">
+            <a href="utils_parseCSV.util.js.html" class="button">View Source</a>
+            <span>
+                <a href="utils_parseCSV.util.js.html">utils/parseCSV.util.js</a>, <a href="utils_parseCSV.util.js.html#line26">line 26</a>
+            </span>
+        </p>
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class='columns method-parameter'>
+        <div class="column is-2"><label>Returns:</label></div>
+        <div class="column is-10">
+            
+                    
+
+<div class="columns">
+    
+    <div class='param-desc column is-7'><p>any[]</p></div>
+    
+    
+</div>
+
+                
+        </div>
+    </div>
+
+
 
 
 </div>

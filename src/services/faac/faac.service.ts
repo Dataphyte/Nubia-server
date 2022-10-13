@@ -22,7 +22,7 @@ class faac_service {
     /* ====== Get parsed state data */
     const stateData: FAAC[] = await parser(
       './src/data/faac-state-data.csv',
-      this.setFields
+      this.setStateDifference
       // (result: FAAC[]) => console.log(result[0])
     );
 
@@ -54,7 +54,7 @@ class faac_service {
    * @param {{Any}} chunck - SIngle data entry from parsed csv files. This param is passed down from the parser function object
    * @returns difference between state total and  previous state total
    */
-  setFields(chunck: any) {
+  setStateDifference(chunck: any) {
     chunck.difference =
       Number(useNumber(chunck.state_total)) -
       Number(useNumber(chunck.prev_state_total));
@@ -69,17 +69,3 @@ class faac_service {
 }
 
 export default new faac_service();
-
-/*
-[1] {
-[1]   State: 'Abia',
-[1]   prev_state_value: '3,991,512,875.90',
-[1]   state_value: '4,111,311,500.26',
-[1]   prev_state_total: '6,494,336,562.80',
-[1]   state_total: '6,804,581,576.76',
-[1]   population: '3,727,347',
-[1]   faac_per_capita: '1825.583069',
-[1]   rank: '6',
-[1]   no_of_lgc: '17'
-[1] }
-*/

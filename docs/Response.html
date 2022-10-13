@@ -5,7 +5,7 @@
   tracking-code-which-will-go-to-the-HEAD
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NUBIA DOCUMENTATION CustomResponse</title>
+  <title>NUBIA DOCUMENTATION Response</title>
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
@@ -102,7 +102,7 @@
             <div class="content">
                 <header class="page-title">
                     <p>Class</p>
-                    <h1>CustomResponse</h1>
+                    <h1>Response</h1>
                 </header>
                 
 
@@ -113,9 +113,7 @@
 
 <header>
     
-        <h2><span class="attribs"><span class="type-signature"></span></span>CustomResponse<span class="signature">(message, data<span class="signature-attributes">opt</span>, success)</span><span class="type-signature"> &rarr; {void}</span></h2>
-        
-            <div class="class-description"><p>Response Object</p></div>
+        <h2><span class="attribs"><span class="type-signature"></span></span>Response<span class="signature">(Route)</span><span class="type-signature"></span></h2>
         
     
 </header>
@@ -134,12 +132,12 @@
 
 
     
-    <h4 class="name" id="CustomResponse">
-        <a class="href-link" href="#CustomResponse">#</a>
+    <h4 class="name" id="Response">
+        <a class="href-link" href="#Response">#</a>
         
         <span class="code-name">
             
-                new CustomResponse<span class="signature">(message, data<span class="signature-attributes">opt</span>, success)</span><span class="type-signature"> &rarr; {void}</span>
+                new Response<span class="signature">(Route)</span><span class="type-signature"></span>
             
         </span>
     </h4>
@@ -148,7 +146,7 @@
     
     
     <div class="description">
-        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/mermaid@7.1.0/dist/mermaid.min.js"></script><p>Wrapper function for routes to set Pre-defined response methods</p>
     </div>
     
 
@@ -173,11 +171,7 @@
             <th>Type</th>
 
             
-            <th>Attributes</th>
-            
 
-            
-            <th>Default</th>
             
 
             <th class="last">Description</th>
@@ -190,113 +184,23 @@
             
 <tr class="deep-level-0">
   
-      <td class="name"><code>message</code></td>
+      <td class="name"><code>Route</code></td>
   
 
   <td class="type">
   
       
-<code class="param-type">String</code>
+<code class="param-type">Router</code>
 
 
   
   </td>
 
   
-      <td class="attributes">
-      
-
-      
-
-      
-      </td>
-  
 
   
-      <td class="default">
-      
-      </td>
-  
 
-  <td class="description last"><p>Response message</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>data</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">*</code>
-
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-          &lt;optional><br>
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-          null
-      
-      </td>
-  
-
-  <td class="description last"><p>Data/payload to be passed</p></td>
-</tr>
-
-
-        
-
-            
-<tr class="deep-level-0">
-  
-      <td class="name"><code>success</code></td>
-  
-
-  <td class="type">
-  
-      
-<code class="param-type">boolean</code>
-
-
-  
-  </td>
-
-  
-      <td class="attributes">
-      
-
-      
-
-      
-      </td>
-  
-
-  
-      <td class="default">
-      
-      </td>
-  
-
-  <td class="description last"><p>State of the request</p></td>
+  <td class="description last"><p>Root route to use the Response middleware</p></td>
 </tr>
 
 
@@ -306,6 +210,150 @@
 </div>
 
 
+
+
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    
+<div class="table-container">
+    <table class="props table">
+        <thead>
+        <tr>
+            
+            <th>Name</th>
+            
+
+            <th>Type</th>
+
+            
+
+            
+
+            <th class="last">Description</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>success</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Method</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>Method for undefined queries</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>created</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Method</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>Response for create queries</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>found</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Method</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>Method for find/get queries</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>updated</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Method</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>Method for update queries</p></td>
+</tr>
+
+        
+            
+<tr class="deep-level-0">
+    
+        <td class="name"><code>deleted</code></td>
+    
+
+    <td class="type">
+    
+        
+<code class="param-type">Method</code>
+
+
+    
+    </td>
+
+    
+
+    
+
+    <td class="description last"><p>Method for delete queries</p></td>
+</tr>
+
+        
+        </tbody>
+    </table>
+</div>
 
 
 
@@ -342,9 +390,9 @@
 
     
         <p class="tag-source">
-            <a href="utils_customResponse.utils.js.html" class="button">View Source</a>
+            <a href="middlewares_Response.middleware.js.html" class="button">View Source</a>
             <span>
-                <a href="utils_customResponse.utils.js.html">utils/customResponse.utils.js</a>, <a href="utils_customResponse.utils.js.html#line16">line 16</a>
+                <a href="middlewares_Response.middleware.js.html">middlewares/Response.middleware.js</a>, <a href="middlewares_Response.middleware.js.html#line41">line 41</a>
             </span>
         </p>
     
@@ -375,14 +423,8 @@
 
 <div class="columns">
     
+    <div class='param-desc column is-7'><p>List of pre-defined response methods to be used in query response. theses are passed on to the next middleware/controller by calling next()</p></div>
     
-    <div class='column is-5 has-text-left'>
-        <label>Type: </label>
-        
-<code class="param-type">void</code>
-
-
-    </div>
     
 </div>
 
@@ -393,12 +435,18 @@
 
 
 
-    <h5>Example</h5>
+    <h5>Examples</h5>
     
-        <p class="code-caption">Example response</p>
+        <p class="code-caption">Using the middleware on a route</p>
     
     
-        <pre class="prettyprint"><code>const userData = // code to get user datares.status(200).send(new CustomResponse('User created',userData, true ))</code></pre>
+        <pre class="prettyprint"><code>// Import middleware into route or root routeconst Response = require('path/to/middleware')const {Router} = require('express')// set routeconst AppRoute = Router()// wrap route at top level with Response middlewareResponse(AppRoute)// Apply other routes or middlewares below</code></pre>
+    
+
+        <p class="code-caption">Using the methods to return response data inside a middleware or controller</p>
+    
+    
+        <pre class="prettyprint"><code>// there is no need for imports as the methods are added to the res objectasync GET_USER(req, res) {const queryData = await user_service.GET_USER()res.found(queryData, 'All Users')}</code></pre>
     
 
 

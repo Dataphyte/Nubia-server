@@ -3,7 +3,6 @@ import csvParser from 'csv-parser';
 
 /**
  * Custom function to parse csv files into arrays of Js Objects
- * @see
  *
  * @param {String} path - Path to the file to be parsed
  * @param {Function} loopCallback - callback function to execute on every data entry
