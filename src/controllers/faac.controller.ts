@@ -1,6 +1,7 @@
 import { Request } from 'express';
 import faacService from '../services/faac/faac.service';
 import { CustomResponseInterface } from '../typescript/interfaces/customResponse.interface';
+import { classType } from '../typescript/types/classnames.types';
 
 /**
  * Controller to handle all FAAC related requests
@@ -22,7 +23,7 @@ class faac_ctrl {
    */
   async CREATE(req: Request, res: CustomResponseInterface) {
     const faacTemplate = await faacService.CREATE();
-    const classnames = [
+    const classnames: classType[] = [
       {
         class: 'container__story',
         desc: 'The wrapping container around the whole story',

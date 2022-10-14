@@ -21,23 +21,20 @@ class faac_service {
 
     // ======= Get parsed state data -->
     const stateData: FAAC[] = await parser(
-      './src/data/faac-state-data.csv',
+      './src/data/faac/faac-state-data.csv',
       this.setStateDifference
-      // (result: FAAC[]) => console.log(result[0])
     );
 
     // ======= get oparsed lgc data -->
     const lgcData = await parser(
-      './src/data/faac-lgc-data.csv',
+      './src/data/faac/faac-lgc-data.csv',
       this.setLgcDifference
-      // (result: FAAC_LGC[]) => console.log(result[0])
     );
 
     stateData.forEach((stateData: FAAC) => {
       lgcData.forEach((lgcData: FAAC_LGC) => {
         stateData.state === lgcData.state && this.pushLGC(stateData, lgcData);
       });
-      console.log(stateData);
       templates.push(
         rosae.renderFile('./src/static/templates/faac_state.pug', {
           language: 'en_US',
