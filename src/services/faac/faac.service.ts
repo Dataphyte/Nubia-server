@@ -53,6 +53,7 @@ class faac_service {
    * @returns difference between state total and  previous state total
    */
   setStateDifference(chunck: FAAC): void {
+    console.log(chunck);
     chunck.difference =
       Number(useNumber(chunck.state_total)) -
       Number(useNumber(chunck.prev_state_total));

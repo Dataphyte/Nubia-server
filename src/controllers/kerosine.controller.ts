@@ -1,11 +1,18 @@
 import { Request } from 'express';
+import kerosineService from '../services/kerosine-watch/kerosine.service';
 import { CustomResponseInterface } from '../typescript/interfaces/customResponse.interface';
 import { classType } from '../typescript/types/classnames.types';
 
 class kerosine_ctrl {
   async CREATE(req: Request, res: CustomResponseInterface): Promise<void> {
-    const kerosineTemplate = 'This is an example template';
-    const classnames: classType[] = [];
+    const kerosineTemplate = await kerosineService.CREATE();
+    const classnames: classType[] = [
+      {
+        class: 'story__container',
+        tag: 'h1',
+        desc: 'Container that wraps the whole story',
+      },
+    ];
     res.created({ template: kerosineTemplate, classnames }, 'Kerosine Stories');
   }
 }
