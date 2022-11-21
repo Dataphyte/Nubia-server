@@ -85,7 +85,10 @@ There are currently no tests.
 
 ## 🎈 Usage <a name="usage"></a>
 
-Add notes about how to use the system.
+Available routes
+
+- host.com/faac
+- host.com/kerosine-watch
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
