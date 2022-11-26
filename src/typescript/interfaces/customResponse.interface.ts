@@ -1,4 +1,5 @@
 import { Response } from 'express';
+import { classType } from '../types/classnames.types';
 
 // predefined methods added to the response object
 export interface CustomResponseInterface extends Response {
@@ -7,4 +8,13 @@ export interface CustomResponseInterface extends Response {
   found?: any;
   updated?: any;
   deleted?: any;
+}
+
+export interface PayloadInterface {
+  template: {
+    templates: any;
+    titles?: string[];
+  };
+  classnames: classType[];
+  type: 'Multiple' | 'Single';
 }

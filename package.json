@@ -9,9 +9,6 @@
     "gen-docs": "jsdoc -c jsdoc.json",
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/_server.js\""
   },
-  "engines": {
-    "node": "16.18.0"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",

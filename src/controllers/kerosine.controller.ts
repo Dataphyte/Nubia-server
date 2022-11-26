@@ -1,6 +1,9 @@
 import { Request } from 'express';
 import kerosineService from '../services/kerosine-watch/kerosine.service';
-import { CustomResponseInterface } from '../typescript/interfaces/customResponse.interface';
+import {
+  CustomResponseInterface,
+  PayloadInterface,
+} from '../typescript/interfaces/customResponse.interface';
 import { classType } from '../typescript/types/classnames.types';
 
 class kerosine_ctrl {
@@ -13,7 +16,9 @@ class kerosine_ctrl {
         desc: 'Container that wraps the whole story',
       },
     ];
-    res.created({ template: kerosineTemplate, classnames }, 'Kerosine Stories');
+
+    const payload = 'Kerosine stories loading';
+    res.created(payload, 'Kerosine Stories');
   }
 }
 

@@ -18,6 +18,7 @@ import { parser } from '../../utils/parseCSV.util';
 class faac_service {
   async CREATE() {
     let templates: any[] = [];
+    let titles: string[] = [];
 
     // ======= Get parsed state data -->
     const stateData: FAAC[] = await parser(
@@ -32,6 +33,9 @@ class faac_service {
     );
 
     stateData.forEach((stateData: FAAC) => {
+      // ======= Add the title for each card -->
+      titles.push(stateData.state);
+
       lgcData.forEach((lgcData: FAAC_LGC) => {
         stateData.state === lgcData.state && this.pushLGC(stateData, lgcData);
       });
@@ -43,7 +47,7 @@ class faac_service {
       );
     });
 
-    return templates;
+    return { templates, titles };
   }
 
   /**
