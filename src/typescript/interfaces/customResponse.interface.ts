@@ -11,10 +11,7 @@ export interface CustomResponseInterface extends Response {
 }
 
 export interface PayloadInterface {
-  template: {
-    templates: any;
-    titles?: string[];
-  };
+  template: any[];
   classnames: classType[];
   type: 'Multiple' | 'Single';
 }
