@@ -41,6 +41,7 @@ class faac_service {
           stateData,
         }),
         title: stateData.state,
+        data: {stateData, lgcData}
       });
     });
 

@@ -186,7 +186,12 @@ class faac_ctrl {
                     tag: 'h3',
                 },
             ];
-            res.created({ template: faacTemplate, classnames }, 'FAAC Stories');
+            const payload = {
+                template: faacTemplate,
+                classnames,
+                type: 'Multiple',
+            };
+            res.created(payload, 'FAAC Stories');
         });
     }
 }

@@ -440,13 +440,25 @@
         <p class="code-caption">Using the middleware on a route</p>
     
     
-        <pre class="prettyprint"><code>// Import middleware into route or root routeconst Response = require('path/to/middleware')const {Router} = require('express')// set routeconst AppRoute = Router()// wrap route at top level with Response middlewareResponse(AppRoute)// Apply other routes or middlewares below</code></pre>
+        <pre class="prettyprint"><code>// Import middleware into route or root route
+const Response = require('path/to/middleware')
+const {Router} = require('express')
+
+// set route
+const AppRoute = Router()
+// wrap route at top level with Response middleware
+Response(AppRoute)
+// Apply other routes or middlewares below</code></pre>
     
 
         <p class="code-caption">Using the methods to return response data inside a middleware or controller</p>
     
     
-        <pre class="prettyprint"><code>// there is no need for imports as the methods are added to the res objectasync GET_USER(req, res) {const queryData = await user_service.GET_USER()res.found(queryData, 'All Users')}</code></pre>
+        <pre class="prettyprint"><code>// there is no need for imports as the methods are added to the res object
+async GET_USER(req, res) {
+const queryData = await user_service.GET_USER()
+res.found(queryData, 'All Users')
+}</code></pre>
     
 
 
