@@ -167,7 +167,7 @@ class faac_ctrl {
                 },
                 {
                     class: 'section__sub-heading',
-                    desc: 'Paragraph and story body',
+                    desc: 'Heading for subsections',
                     tag: 'h2',
                 },
                 {
@@ -192,6 +192,12 @@ class faac_ctrl {
                 type: 'Multiple',
             };
             res.created(payload, 'FAAC Stories');
+        });
+    }
+    GET_DATA(req, res) {
+        return __awaiter(this, void 0, void 0, function* () {
+            const data = yield faac_service_1.default.GET_DATA();
+            res.found(data, 'FAAC data');
         });
     }
 }

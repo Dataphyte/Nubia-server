@@ -42,7 +42,7 @@ class faac_ctrl {
       },
       {
         class: 'section__sub-heading',
-        desc: 'Paragraph and story body',
+        desc: 'Heading for subsections',
         tag: 'h2',
       },
       {
@@ -69,6 +69,11 @@ class faac_ctrl {
     };
 
     res.created(payload, 'FAAC Stories');
+  }
+
+  async GET_DATA(req: Request, res: CustomResponseInterface) {
+    const data = await faacService.GET_DATA();
+    res.found(data, 'FAAC data');
   }
 }
 

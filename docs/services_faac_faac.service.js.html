@@ -143,6 +143,9 @@ const parseCSV_util_1 = require("../../utils/parseCSV.util");
  * res.status(201).send(newStory)
  */
 class faac_service {
+    constructor() {
+        this.data = {};
+    }
     CREATE() {
         return __awaiter(this, void 0, void 0, function* () {
             let templates = [];
@@ -160,7 +163,6 @@ class faac_service {
                         stateData,
                     }),
                     title: stateData.state,
-                    data: { stateData, lgcData }
                 });
             });
             return templates;
@@ -201,6 +203,28 @@ class faac_service {
     pushLGC(stateData, lgc) {
         var _a;
         return stateData &amp;&amp; lgc &amp;&amp; ((_a = stateData.lgc_data) === null || _a === void 0 ? void 0 : _a.push(lgc));
+    }
+    /**
+     * Gets the data used to generate FAAC stories
+     *
+     * @returns FAAC[]
+     */
+    GET_DATA() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let resData = [];
+            // ======= Get parsed state data -->
+            const stateData = yield (0, parseCSV_util_1.parser)('./src/data/faac/faac-state-data.csv', this.setStateDifference);
+            // ======= get oparsed lgc data -->
+            const lgcData = yield (0, parseCSV_util_1.parser)('./src/data/faac/faac-lgc-data.csv', this.setLgcDifference);
+            stateData.map((stateData) => {
+                lgcData.map((lgcData) => {
+                    // push lgc if the states are the same
+                    lgcData.state === stateData.state &amp;&amp; this.pushLGC(stateData, lgcData);
+                });
+                resData.push(stateData);
+            });
+            return resData;
+        });
     }
 }
 exports.default = new faac_service();
