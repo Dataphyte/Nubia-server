@@ -1,5 +1,5 @@
-import { Response } from 'express';
-import { classType } from '../types/classnames.types';
+
+import { Request, Response } from 'express';
 
 // predefined methods added to the response object
 export interface CustomResponseInterface extends Response {
@@ -10,8 +10,10 @@ export interface CustomResponseInterface extends Response {
   deleted?: any;
 }
 
-export interface PayloadInterface {
-  template: any[];
-  classnames: classType[];
-  type: 'Multiple' | 'Single';
+export interface CustomRequestInterface extends Request {
+  authData?: {
+    email: string;
+    email_verified: boolean;
+    cognito_id: string;
+  };
 }
