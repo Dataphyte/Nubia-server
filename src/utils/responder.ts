@@ -15,7 +15,7 @@ export const responder = (
   status: number,
   state: 'ok' | 'error',
   message = 'This is an unedited response',
-  data: any
+  data?: any
 ) => {
   // -- if no response object was passed -->
   if (!res || typeof res === 'string' || typeof res === 'number')

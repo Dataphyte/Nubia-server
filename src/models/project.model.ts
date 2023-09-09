@@ -1,6 +1,6 @@
 import mongoose, { Schema } from 'mongoose';
 
-type ProjectType = {
+export type ProjectType = {
   name: string;
   dataUrl: string;
   template: {

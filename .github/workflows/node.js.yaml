@@ -1,0 +1,37 @@
+name: Deploy to app engine
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  setup-build-publish:
+    name: Setup, Build, Publish
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: CHeckout code
+        uses: actions/checkout@v2
+
+      - name: Setup Node js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16 # can change later on tbh (Not sure)
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build
+        run: yarn run build # TODO: Check this
+
+      - name: Setup GCloud CLI
+        uses: google-github-actions/setub-gcloud@master
+        with:
+          service_account_key: ${{secrets.GCP_SA_KEY}}
+          project_id: ${{secrets.PROJECT_ID}} # TODO: change this to an actual project id
+          export_default_credentials: true
+
+      - name: Deploy to App Engine
+        run: |
+          gcloud app deploy --quiet
