@@ -398,7 +398,10 @@
         <p class="code-caption">Example response</p>
     
     
-        <pre class="prettyprint"><code>const userData = // code to get user datares.status(200).send(new CustomResponse('User created',userData, true ))</code></pre>
+        <pre class="prettyprint"><code>const userData = // code to get user data
+res
+.status(200)
+.send(new CustomResponse('User created',userData, true ))</code></pre>
     
 
 

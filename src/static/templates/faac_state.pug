@@ -41,7 +41,7 @@ html(lang='en')
          ul.container__lgc
             each lgcData in stateData.lgc_data
                li.item__lgc 
-                  h3.list__heading What #{lgcData.lgc} got in total
+                  h3.list__heading What #{lgcData.lgc} received
 
                   p.content
                      | The #{lgcData.lgc} in the March, 2022 received #[+value(`₦${lgcData.lgc_value.toLocaleString()}`)]mn.
