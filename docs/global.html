@@ -362,7 +362,13 @@ case of any.</p>
         <p class="code-caption">Wrapping a controller</p>
     
     
-        <pre class="prettyprint"><code>const {Router} = require('express')const asyncHandler = require('path/to/asyncHandler.js')const UserRoute = Router()UserRoute.route('/user/').get(asyncHandler( routeController ))</code></pre>
+        <pre class="prettyprint"><code>const {Router} = require('express')
+const asyncHandler = require('path/to/asyncHandler.js')
+
+const UserRoute = Router()
+UserRoute
+.route('/user/')
+.get(asyncHandler( routeController ))</code></pre>
     
 
 

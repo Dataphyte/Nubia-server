@@ -230,7 +230,12 @@
         <p class="code-caption">Using the controller for sample route</p>
     
     
-        <pre class="prettyprint"><code>const faac_ctrl = require('path/to/controller')const FAACRoute = express.Router()FAACRoute.route('/api/faac').use(faac_ctrl.CREATE)</code></pre>
+        <pre class="prettyprint"><code>const faac_ctrl = require('path/to/controller')
+
+const FAACRoute = express.Router()
+FAACRoute
+.route('/api/faac')
+.use(faac_ctrl.CREATE)</code></pre>
     
 
 

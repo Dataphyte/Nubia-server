@@ -16,6 +16,12 @@ import { parser } from '../../utils/parseCSV.util';
  * res.status(201).send(newStory)
  */
 class faac_service {
+  data: any;
+
+  constructor() {
+    this.data = {};
+  }
+
   async CREATE() {
     let templates: any[] = [];
 
@@ -35,12 +41,13 @@ class faac_service {
       lgcData.forEach((lgcData: FAAC_LGC) => {
         stateData.state === lgcData.state && this.pushLGC(stateData, lgcData);
       });
-      templates.push(
-        rosae.renderFile('./src/static/templates/faac_state.pug', {
+      templates.push({
+        story: rosae.renderFile('./src/static/templates/faac_state.pug', {
           language: 'en_US',
           stateData,
-        })
-      );
+        }),
+        title: stateData.state,
+      });
     });
 
     return templates;
@@ -83,6 +90,37 @@ class faac_service {
    */
   pushLGC(stateData: FAAC, lgc: FAAC_LGC) {
     return stateData && lgc && stateData.lgc_data?.push(lgc);
+  }
+
+  /**
+   * Gets the data used to generate FAAC stories
+   *
+   * @returns FAAC[]
+   */
+  async GET_DATA() {
+    let resData: FAAC[] = [];
+
+    // ======= Get parsed state data -->
+    const stateData: FAAC[] = await parser(
+      './src/data/faac/faac-state-data.csv',
+      this.setStateDifference
+    );
+
+    // ======= get oparsed lgc data -->
+    const lgcData = await parser(
+      './src/data/faac/faac-lgc-data.csv',
+      this.setLgcDifference
+    );
+
+    stateData.map((stateData: FAAC) => {
+      lgcData.map((lgcData: FAAC_LGC) => {
+        // push lgc if the states are the same
+        lgcData.state === stateData.state && this.pushLGC(stateData, lgcData);
+      });
+      resData.push(stateData);
+    });
+
+    return resData;
   }
 }
 

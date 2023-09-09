@@ -8,4 +8,9 @@ faacRoutes
     .route('/faac')
         .get(faacController.CREATE)
 
+// prettier-ignore
+faacRoutes
+    .route('/faac/data')
+        .get(faacController.GET_DATA);
+
 export default faacRoutes;
