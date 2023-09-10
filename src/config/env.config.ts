@@ -4,5 +4,5 @@ dotenv.config();
 
 export default {
   PORT: process.env.PORT,
-  AWS_REGION: process.env.AWS_REGION,
+  MONGO_URL: process.env.MONGO_URL,
 };

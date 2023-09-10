@@ -1,4 +1,4 @@
-runtime: nodejs16
+runtime: nodejs18
 env: standard
 
 manual_scaling:

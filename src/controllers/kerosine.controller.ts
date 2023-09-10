@@ -1,9 +1,6 @@
 import { Request } from 'express';
 import kerosineService from '../services/kerosine-watch/kerosine.service';
-import {
-  CustomResponseInterface,
-  PayloadInterface,
-} from '../typescript/interfaces/customResponse.interface';
+import { CustomResponseInterface } from '../typescript/interfaces/customResponse.interface';
 import { classType } from '../typescript/types/classnames.types';
 
 class kerosine_ctrl {

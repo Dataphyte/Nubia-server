@@ -2,6 +2,7 @@ import cors from 'cors';
 import morgan from 'morgan';
 import helmet from 'helmet';
 import { Express } from 'express';
+import express from 'express';
 import AppRouter from '../routes/router';
 import ErrorMiddleware from './Error.middleware';
 
@@ -24,6 +25,7 @@ const preRoute = (app: Express): void => {
     app
       .use(cors())
       .use(helmet())
+      .use(express.json())
       .use(morgan('[:method - :status] :url :response-time ms'))
       .use(AppRouter)
 

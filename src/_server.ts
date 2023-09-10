@@ -1,10 +1,12 @@
 import env from './config/env.config';
 import express, { Express } from 'express';
 import preRoute from './middlewares/pre-route.middleware';
+import mongoConnect from './config/connectdb';
 
 const app: Express = express();
 
 preRoute(app);
+mongoConnect();
 
 // ======= trust proxies ( to get IP addresses if needed) -->
 app.set('trust proxy', true);

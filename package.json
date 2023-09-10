@@ -10,7 +10,7 @@
     "dev": "concurrently \"npx tsc --watch\" \"nodemon -q dist/_server.js\""
   },
   "engines": {
-    "node": "16.18.0"
+    "node": "18"
   },
   "keywords": [],
   "author": "",
